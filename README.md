@@ -1,5 +1,5 @@
 # Anki-autoLapseNewInterval
-An Anki2 addon by [eshapard](https://github.com/eshapard) which I made work with Anki21. The addon automatically adjusts the new interval to target an 85% review success rate. A more in-depth description can be found on [eshapard's code blog.](https://eshapard.github.io/anki/anki-auto-adjust-new-interval-after-a-lapse.html)
+An Anki2 addon by [eshapard](https://github.com/eshapard) which I made to work with Anki21. The addon automatically adjusts the new interval to target an 85% review success rate. A more in-depth description can be found on [eshapard's code blog.](https://eshapard.github.io/anki/anki-auto-adjust-new-interval-after-a-lapse.html)
 # Changes
 While eshapard's code blog mentions that the addon might work with Anki21 if you comment out a particular line, I discovered that lapses are rarely registered as such, and so the addon only adjusted the new interval on the first time you run it, and *never again*, because even if I lapsed 50 cards, they would not be detected on Anki21.
   
