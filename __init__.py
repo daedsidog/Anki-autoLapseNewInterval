@@ -18,7 +18,7 @@ from anki.utils import intTime
 #    settings based on a small set of data.
 card_sample_size = 100
 defaultTSR = 85 #Default target success rate (as a percentage)
-change_silently = True #Do the changes without asking the user
+change_silently = False #Do the changes without asking the user
 
 
 # ------------Nothing to edit below--------------------------------#
