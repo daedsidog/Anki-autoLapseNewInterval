@@ -40,10 +40,10 @@ def save_lapseStats():
 
 # Find settings group ID
 def find_settings_group_id(name):
-    dconf = mw.col.decks.dconf
-    for k in dconf:
-        if dconf[k]['name'] == name:
-            return k
+    dconfs = mw.col.decks.all_config()
+    for dconf in dconfs:
+        if dconf['name'] == name:
+            return dconf['id']
     return False
 
 
@@ -167,11 +167,11 @@ def adj_lapsed_newIvl(group_id, silent=True):
     # Return if target success rate is false or 0.
     if not tsr: return
     #find name of group
-    dconf = mw.col.decks.dconf
-    name = dconf[group_id]['name']
+    dconf = mw.col.decks.get_config(group_id)
+    name = dconf['name']
     if name not in previous[profile]:
         previous[profile][name] = {}
-    cur_LNIvl = float(mw.col.decks.dconf[group_id]['lapse']['mult'])
+    cur_LNIvl = dconf['lapse']['mult']
     lapsed_success_rate, lapsed_rev_records = og_lapsed_success_rate(name, card_sample_size)
     # Returns False, False if we don't have enough review records since last time.
     if lapsed_success_rate and lapsed_rev_records and lapsed_success_rate != tsr:
@@ -189,8 +189,8 @@ def adj_lapsed_newIvl(group_id, silent=True):
                 "\n\nAccept new Lapsed new interval?" % (
                 name, cur_rate, target_rate, cur_LNIvl, new_LNIvl)):
             # make changes
-            mw.col.decks.dconf[group_id]['lapse']['mult'] = new_LNIvl
-            mw.col.decks.save(mw.col.decks.dconf[group_id])
+            dconf['lapse']['mult'] = new_LNIvl
+            mw.col.decks.setConf(dconf, group_id)
             previous[profile][name]['lapsed'] = intTime(1000)
             #utils.showInfo("Updating lapsed new interval currently disabled")
     else:
@@ -200,6 +200,6 @@ def adj_lapsed_newIvl(group_id, silent=True):
 
 def eval_lapsed_newIvl(silent=False):
     #find all deck options groups
-    dconf = mw.col.decks.dconf
-    for og in dconf:
-        adj_lapsed_newIvl(og, silent)
+    dconfs = mw.col.decks.all_config()
+    for dconf in dconfs:
+        adj_lapsed_newIvl(dconf['id'], silent)
