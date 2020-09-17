@@ -194,7 +194,7 @@ def adj_lapsed_newIvl(group_id, silent=True):
             previous[profile][name]['lapsed'] = intTime(1000)
             #utils.showInfo("Updating lapsed new interval currently disabled")
     else:
-        if not silent:
+        if not change_silently:
             utils.showInfo("Lapsed New Interval\n\nNot enough records for options group %s (%d)" % (name, lapsed_rev_records))
 
 
