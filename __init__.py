@@ -171,7 +171,7 @@ def adj_lapsed_newIvl(group_id, silent=True):
     name = dconf['name']
     if name not in previous[profile]:
         previous[profile][name] = {}
-    cur_LNIvl = dconf['lapse']['mult']
+    cur_LNIvl = float(dconf['lapse']['mult'])
     lapsed_success_rate, lapsed_rev_records = og_lapsed_success_rate(name, card_sample_size)
     # Returns False, False if we don't have enough review records since last time.
     if lapsed_success_rate and lapsed_rev_records and lapsed_success_rate != tsr:
