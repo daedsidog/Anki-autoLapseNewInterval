@@ -50,10 +50,10 @@ def find_settings_group_id(name):
 # Find decks in settings group
 def find_decks_in_settings_group(group_id):
     members = []
-    decks = mw.col.decks.decks
+    decks = mw.col.decks.get_all_legacy()
     for d in decks:
-        if 'conf' in decks[d] and int(decks[d]['conf']) == int(group_id):
-            members.append(d)
+        if 'conf' in d and int(d['conf']) == int(group_id):
+            members.append(d['id'])
     return members
 
 
