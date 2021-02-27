@@ -5,7 +5,7 @@ While eshapard's code blog mentions that the addon might work with Anki21 if you
   
 I don't know if this is due to the Anki21 migration, an original bug in the Anki2 addon, or the author's intention. From reading his post about how he intended it to work, it is very likely it is one of the first two. What I did was modify the SQLite queries to correctly detect lapsed cards and correctly calculate the success rate. I also added the option to allow the addon to work in the background without informing the user of the changes it made.
 # Installation
-Create a folder called `autoLapseNewInterval` inside `Anki2/addons21` (usually located at `Users\Username\AppData\Roaming` on Windows) and place `__init__.py` inside that folder. If you're using older version of Anki, make sure to use one of the legacy releases appropriate for your version instead.
+Create a folder called `autoLapseNewInterval` inside `Anki2/addons21` (usually located in `C:/Users\Username\AppData\Roaming` on Windows) and place `__init__.py` inside that folder. If you're using older version of Anki, make sure to use one of the legacy releases appropriate for your version instead.
 # Usage
 For more in-depth information on what the addon does, you should read [eshapard's original post](https://eshapard.github.io/anki/anki-auto-adjust-new-interval-after-a-lapse.html) ([backup](https://github.com/daedsidog/Anki-autoLapseNewInterval/tree/master/eshepard-blogpost-backup)). 
 You can adjust the `change_silently` variable in the code to allow the addon to make changes silently without prompting you.
