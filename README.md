@@ -8,4 +8,4 @@ I don't know if this is due to the Anki21 migration, an original bug in the Anki
 Create a folder called `autoLapseNewInterval` inside `Anki2/addons21` (usually located in `C:\Users\Username\AppData\Roaming` on Windows) and place `__init__.py` inside that folder. If you're using older version of Anki, make sure to use one of the legacy releases appropriate for your version instead.
 # Usage
 For more in-depth information on what the addon does, you should read [eshapard's original post](https://eshapard.github.io/anki/anki-auto-adjust-new-interval-after-a-lapse.html) ([backup](https://github.com/daedsidog/Anki-autoLapseNewInterval/tree/master/eshepard-blogpost-backup)). 
-You can adjust the `change_silently` variable in the code to allow the addon to make changes silently without prompting you.
+You can adjust the `change_silently` variable in the ~~code~~ settings to allow the addon to make changes silently without prompting you.
