@@ -19,6 +19,7 @@ from anki.utils import intTime
 card_sample_size = 100
 defaultTSR = 85 #Default target success rate (as a percentage)
 change_silently = False #Do the changes without asking the user
+ignore_silently = True # Don't notify if a settings group doesn't need an update
 
 
 # ------------Nothing to edit below--------------------------------#
@@ -194,7 +195,7 @@ def adj_lapsed_newIvl(group_id, silent=True):
             previous[profile][name]['lapsed'] = intTime(1000)
             #utils.showInfo("Updating lapsed new interval currently disabled")
     else:
-        if not change_silently:
+        if not change_silently and not ignore_silently:
             utils.showInfo("Lapsed New Interval\n\nNot enough records for options group %s (%d)" % (name, lapsed_rev_records))
 
 
