@@ -1,0 +1,6 @@
+{
+    "card_sample_size": 100,
+    "target_success_rate": 85,
+    "change_silently": false,
+    "ignore_silently": true
+}
